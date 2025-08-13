@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${post.titulo}"></title>
+</head>
+<body>
+    <h1 th:text="${post.titulo}">Título del Post</h1>
+    <p th:text="${post.contenido}">Contenido del post...</p>
+    <p>Fecha de Creación: <span th:text="${#dates.format(post.fechaCreacion, 'dd-MM-yyyy HH:mm')}"></span></p>
+    
+    <a href="/">Volver a la lista de posts</a>
+</body>
+</html>

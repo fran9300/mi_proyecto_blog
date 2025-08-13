@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Nuevo Post</title>
+</head>
+<body>
+    <h1>Crear Nuevo Post</h1>
+
+    <div th:if="${error}" style="color: red;">
+        <pre th:text="${error}"></pre>
+    </div>
+
+    <form th:action="@{/crear-post}" th:object="${post}" method="post">
+        <label for="titulo">Título:</label><br>
+        <input type="text" id="titulo" th:field="*{titulo}"><br>
+        <br>
+
+        <label for="contenido">Contenido:</label><br>
+        <textarea id="contenido" th:field="*{contenido}"></textarea><br>
+        <br>
+
+        <input type="submit" value="Guardar Post">
+    </form>
+
+    <br>
+    <a href="/">Volver a la lista de posts</a>
+</body>
+</html>

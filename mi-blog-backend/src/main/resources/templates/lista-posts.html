@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Blog Sencillo</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class = "main-title">Listado de Posts</h1>
+            <a href="/crear-post">Crear Nuevo Post</a>
+        </header>
+        <main>
+            <div th:each="post : ${posts}">
+                <article>
+                    <h2><a th:href="@{/posts/{id}(id=${post.id})}" th:text="${post.titulo}">Título del Post</a></h2>
+                    <p th:text="${post.contenido}">Contenido del post...</p>
+                    <p>Fecha de Creación: <span th:text="${#dates.format(post.fechaCreacion, 'dd-MM-yyyy HH:mm:ss')}"></span></p>
+            </article></div>
+        </main>
+
+</div>
+</body>
+</html>
